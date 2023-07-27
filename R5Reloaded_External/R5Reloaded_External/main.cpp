@@ -17,7 +17,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     if (!m.Init())
         return 0;
 
-    // Apex‚ÌƒEƒBƒ“ƒhƒEƒTƒCƒY/POINT‚ğæ“¾
+    // Apexã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚º/POINTã‚’å–å¾—
     GameHwnd = FindWindowA(NULL, "Apex Legends");
     SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_SYSTEM_AWARE);
     GetClientRect(GameHwnd, &Ov.GameSize);
@@ -32,7 +32,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     ClientToScreen(GameHwnd, &Ov.GamePoint);
 
     // Create Overlay
-    WNDCLASSEXA wc = { sizeof(WNDCLASSEXA), 0, WndProc, 0, 0, NULL, NULL, NULL, NULL, "NIGGERCHEATS", "WND", NULL };
+    WNDCLASSEXA wc = { sizeof(WNDCLASSEXA), 0, WndProc, 0, 0, NULL, NULL, NULL, NULL, "A Overlay", "WND", NULL };
     RegisterClassExA(&wc);
     OverlayHwnd = CreateWindowExA(NULL, wc.lpszClassName, wc.lpszMenuName, WS_POPUP | WS_VISIBLE, Ov.GamePoint.x, Ov.GamePoint.y, Ov.GameSize.right, Ov.GameSize.bottom, NULL, NULL, wc.hInstance, NULL);
     SetWindowLong(OverlayHwnd, GWL_EXSTYLE, WS_EX_LAYERED | WS_EX_TRANSPARENT | WS_EX_TOOLWINDOW);
@@ -122,12 +122,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     return 0;
 }
 
-// å‚ÉƒI[ƒo[ƒŒƒC‚ÌŠÇ——pƒXƒŒƒbƒh
+// ä¸»ã«ã‚ªãƒ¼ãƒãƒ¼ãƒ¬ã‚¤ã®ç®¡ç†ç”¨ã‚¹ãƒ¬ãƒƒãƒ‰
 void ManagerTH()
 {
     while (g.Active)
     {
-        // ƒQ[ƒ€‚ªÀs‚³‚ê‚Ä‚¢‚é‚©‚ğƒ`ƒFƒbƒN‚·‚é
+        // ã‚²ãƒ¼ãƒ ãŒå®Ÿè¡Œã•ã‚Œã¦ã„ã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹
         HWND CheckHwnd = FindWindowA(NULL, "Apex Legends");
         if (!CheckHwnd)
             g.Active = false;
