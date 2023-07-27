@@ -204,7 +204,8 @@ void Overlay::m_ESP()
     uint64_t LocalPLayer = m.Read<uint64_t>(m.BaseAddress + offset::dwLocalPlayer);
     LPlayer = m.Read<CPlayer>(LocalPLayer + 0x140);
 
-    if (DummyESP)
+    // ESP Vis/Normal - example : 1
+    if (!DummyESP)
     {
         for (int x = 0; x < 75; x++)
         {
@@ -221,6 +222,7 @@ void Overlay::m_ESP()
         }
     }
 
+    // ESP Main
     for (int i = 0; i < g.MaxCount; i++)
     {
         // Local Check
@@ -229,6 +231,7 @@ void Overlay::m_ESP()
         else if (pLocal->m_localOrigin == Vector3(0.f, 0.f, 0.f))
             continue;
 
+        // ポインタじゃないとパフォーマンスが相当落ちる
         CPlayer BaseEntity, *pEntity = &BaseEntity;
 
         uint64_t Entity = GetEntityById(m.BaseAddress, i);
@@ -236,6 +239,7 @@ void Overlay::m_ESP()
         if (Entity == NULL || Entity == LocalPLayer)
             continue;
 
+        // 1RPMで、sdk.hで作った構造体を読み取る
         BaseEntity = m.Read<CPlayer>(Entity + 0x140);
 
         if (!TeamESP && pEntity->m_iTeamNum == pLocal->m_iTeamNum)
@@ -253,7 +257,7 @@ void Overlay::m_ESP()
         Vector2 ScreenPos = {};
         WorldToScreen(pEntity->m_localOrigin, &ViewMatrix._11, (float)GameSize.right, (float)GameSize.bottom, ScreenPos);
 
-        // ターゲットがレンダリング可能な範囲内にいたら
+        // W2Sが有効であったらレンダリングする
         if (ScreenPos.x != 0.f && ScreenPos.y != 0.f)
         {   
             // Distance
@@ -316,7 +320,7 @@ void Overlay::m_ESP()
                     }
                 }
 
-                // Health Bar
+                // Health Bar - 1つに統合したかったけど面倒くさかった
                 if (ESP_HealthBar)
                 {
                     BaseBar(ScreenHeadPos.x - (Width / 2.f) - 7, (ScreenHeadPos.y + Height) + 1, 4, -Height - 1);
@@ -338,6 +342,7 @@ void Overlay::m_ESP()
         }
     }
 
+    // ESP Vis/Normal example : 2
     if (!DummyESP)
         std::this_thread::sleep_for(std::chrono::microseconds(1));
 
