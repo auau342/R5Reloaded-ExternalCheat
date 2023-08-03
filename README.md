@@ -1,12 +1,11 @@
 # R5Reloaded-ExternalCheat
-友人と共同開発したR5Reloadedの外部チートです。  
-やりたいことはまだまだありますが、友人も自分も時間が取れないので公開という流れになりました。  
-時々、バグ修整等はしていく予定です。
+友人と共同開発したR5Reloadedの外部チートです。
+やりたいことはまだまだありますが、友人も自分も時間が取れないので公開という流れになりました。
 
 ## 主な機能
 - AimBot
-  * Smooth  
-  * Aim予測  
+  * Smooth
+  * Aim予測
   * 可視チェック
 - ESP
   * Box
@@ -16,23 +15,22 @@
 - Misc
   * SpeedHack
 
-### 仕様
-* 普通のオーバーレイにImGuiとそのDrawListを使用してメニューやESP等をレンダリングしています。
-* 必要最低限のReadProcessMemoryでプレイヤーの情報を取得できるようにしています。
-* UI/UXを重視し可能な限り簡潔に、扱いやすいソフトウェアに仕上げました（仕上がってないけど）
-
 #### バグ/不具合/仕様と解決策
-* あまりにESPのループが早すぎると、ESPの色がVis/Norma Colorで点滅します。  
-  -> Dummy ESP：OFF でサーバーに数人しかいないとなるかも？lastvisibletimeを高速で読み、前の値と変わる/変わらずを繰り返してるっぽいので、解消したいのなら条件付きでパフォーマンスを低下させましょう。
+* 取得できない値
+  1. ダミーの"m_vecAbsVelocity"
+  2. LocalPlayerの"lastPrimaryWeapon"（取得できる場合もあるが、基本的にはできない）
+
+* ESPの色がVis/Norma Colorで点滅する  
+  -> ESPのループが早すぎて、lastvisibletimeの値が更新される前にESPが更新されているのが原因。
   
 * 敵が超至近距離にいるとAimBotが反応しない  
-  -> 原因不明。自分でどうにかしてね(はーと)
+  -> 敵に近づくにつれて描画されているFOVと実際のAimFOVがズレる。原因不明。
   
-* ダミーにAim予測が適応されない  
-  -> ダミーの m_vecAbsVelocity からはVector3(0.f, 0.f, 0.f)しか取得できなかったのでR5ReloadedかApexの仕様では？という結論になりました。
+* プレイヤーにはAim予測が適応されるが、ダミーにはAim予測が適応されない  
+  -> ダミーの m_vecAbsVelocity からはVector3(0.f, 0.f, 0.f)しか取得できなかったのでR5Reloadedの仕様
 
 * Y軸の予測が正確ではない  
-  -> lastprimaryweaponが取得できないのでGravityも取得できません。察してください。
+  -> lastprimaryweaponがほぼ取得できないのでGravityも取得できません。それっぽい値で無理やり動かしています。
 
 * DummyESP: ON時のパフォーマンスが悪い  
   -> レンダリング中に突如16000回のforループとReadProcessMemoryが出現したらそりゃーパフォーマンスだって落ちます
