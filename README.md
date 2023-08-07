@@ -24,7 +24,7 @@
   -> ESPのループが早すぎて、lastvisibletimeの値が更新される前にESPが更新されているのが原因。
   
 * 敵が超至近距離にいるとAimBotが反応しない  
-  -> 敵に近づくにつれて描画されているFOVと実際のAimFOVがズレる。原因不明。
+  -> Aim Boneのチェックを増やしてみてね
   
 * プレイヤーにはAim予測が適応されるが、ダミーにはAim予測が適応されない  
   -> ダミーの m_vecAbsVelocity からはVector3(0.f, 0.f, 0.f)しか取得できなかったのでR5Reloadedの仕様
