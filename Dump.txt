@@ -1,5 +1,8 @@
 // For R5Reloaded
 
+Step 1, Dump with Scylla Dumper 
+Step 2, Visit : https://casualhacks.net/apexdream/apexdumper.html
+
 [Interfaces]
 ClientRenderTargets001=0x0173daa8
 EngineTraceClient004=0x0172ff08
