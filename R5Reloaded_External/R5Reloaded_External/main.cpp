@@ -66,7 +66,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
     // Background color
     ImVec4 clear_color = ImVec4(1.f, 1.f, 1.f, 0.f);
-
     
     Run = true;
     // オーバーレイ管理用のスレッドを作成
