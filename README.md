@@ -32,4 +32,4 @@
 それ以外の用途に使用して発生したいかなる損害についても、開発者一同は一切の責任を負いません。
 
 ## メディア
-準備中
+![タイトルなし](https://github.com/FlankGir1/R5Reloaded-ExternalCheat/assets/124275926/54adc229-32cc-4754-a3f1-06a1d82fe69c)
