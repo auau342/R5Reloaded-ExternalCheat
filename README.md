@@ -12,8 +12,6 @@
   * Line
   * Distance
   * HealthBar
-- Misc
-  * SpeedHack
 
 #### バグ/不具合/仕様と解決策
 * 取得できない値
@@ -22,18 +20,12 @@
 
 * ESPの色がVis/Norma Colorで点滅する  
   -> ESPのループが早すぎて、lastvisibletimeの値が更新される前にESPが更新されているのが原因。
-  
-* 敵が超至近距離にいるとAimBotが反応しない  
-  -> Aim Boneのチェックを増やしてみてね
-  
+
 * プレイヤーにはAim予測が適応されるが、ダミーにはAim予測が適応されない  
   -> ダミーの m_vecAbsVelocity からはVector3(0.f, 0.f, 0.f)しか取得できなかったのでR5Reloadedの仕様
 
 * Y軸の予測が正確ではない  
   -> lastprimaryweaponがほぼ取得できないのでGravityも取得できません。それっぽい値で無理やり動かしています。
-
-* DummyESP: ON時のパフォーマンスが悪い  
-  -> レンダリング中に突如16000回のforループとReadProcessMemoryが出現したらそりゃーパフォーマンスだって落ちます
 
 ## 免責事項：
 このプロジェクトは学習や教育用です。  
