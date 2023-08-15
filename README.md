@@ -32,5 +32,4 @@
 それ以外の用途に使用して発生したいかなる損害についても、開発者一同は一切の責任を負いません。
 
 ## メディア
-![image](https://github.com/FlankGir1/R5Reloaded-ExternalCheat/assets/124275926/c99fdde2-db25-42e6-81a0-869db74cc153)
-![image](https://github.com/FlankGir1/R5Reloaded-ExternalCheat/assets/124275926/eab0f461-bf44-4398-88d7-712d4c6c509d)
+準備中
