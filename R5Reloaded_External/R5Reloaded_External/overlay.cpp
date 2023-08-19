@@ -47,6 +47,7 @@ int AimKeu1 = VK_LBUTTON;
 float vPlayerInfo[75] = {};
 
 void Overlay::m_Info()
+//mankooooooooooooooooooooooooooooooooooooooooo
 {
     ImGui::SetNextWindowPos(ImVec2(0, 0));
     ImGui::SetNextWindowSize(ImVec2((float)GameSize.right, (float)GameSize.bottom));
